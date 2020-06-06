@@ -37,6 +37,6 @@ Returns:
 Returns:
 ```json
 {
-    "result": "ok"
+    "result": 1 
 }
 ```

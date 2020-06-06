@@ -47,7 +47,7 @@ app.post('/appt', function (request, response) {
 app.post('/appt/cnx', function (request, response) {
 
     console.log(request.body)
-    response.send({ "result": "ok" })
+    response.send({ "result": 1 })
 
 })
 
