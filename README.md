@@ -15,7 +15,7 @@ Get appointments:
 /appt
 
 Returns:
-
+```json
 {
     "numDays": 90,
     "appts": [
@@ -31,11 +31,12 @@ Returns:
         }
     ]
 }
-
+```
 /appt/cnx
 
 Returns:
-
+```json
 {
     "result": "ok"
 }
+```
