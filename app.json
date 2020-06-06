@@ -1,0 +1,8 @@
+{
+  "name": "ApptSrv: Node.js",
+  "description": "A barebones Node.js for testing Teilio Studio",
+  "repository": "https://git.heroku.com/sme-demo-apptsrv.git",
+  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+  "keywords": ["node", "express", "heroku"],
+  "image": "heroku/nodejs"
+}
