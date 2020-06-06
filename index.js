@@ -34,7 +34,7 @@ app.post('/appt', function (request, response) {
             {
                 id: "8098098098",
                 dateTime: (date2.getTime() / 1000) | 0,
-                Location: "Eye",
+                Location: "Cardiology",
             },
         ],
     };
