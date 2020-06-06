@@ -16,7 +16,7 @@ app.get('/', function (request, response) {
 
 app.post('/appt', function (request, response) {
     console.log(request.body)
-   
+    var currentTime  = new Date();
     var date1 = new Date()
     date1.setDate(currentTime.getDate() + 14)
    
