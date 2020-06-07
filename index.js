@@ -15,6 +15,7 @@ app.get('/', function (request, response) {
 })
 
 app.post('/appt', function (request, response) {
+    console.log(request)
     console.log(request.body)
     var currentTime  = new Date();
     var date1 = new Date()
