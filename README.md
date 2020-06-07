@@ -16,7 +16,7 @@ data posted from ivr:
 ```json
 {
     "id": "999999999",
-    "ivrPhone": "++15553338888",
+    "ivrPhone": "+15553338888",
     "callerPhone": "+15552223333"
 }
 ```
