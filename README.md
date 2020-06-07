@@ -12,7 +12,15 @@ Two enpoints
 
 Get appointments: 
 
-/appt
+data posted from ivr:
+```json
+{
+    "id": "999999999",
+    "ivrPhone": "++15553338888",
+    "callerPhone": "+15552223333"
+}
+```
+/appt   
 
 Returns:
 ```json
@@ -40,3 +48,5 @@ Returns:
     "result": 1 
 }
 ```
+
+{"ssn":"{{widgets.gather_input.Digits}}","ivrPhone":{{flow.channel.address}}","callerPhone":"{{contact.channel.address}}"}
