@@ -20,11 +20,11 @@ app.post('/appt', function (request, response) {
    /*
     Expect: 
     {
-        "id": "{
+        "id": {
             "request": "get_appointments",
             "id": "000001234"
             "numDays": 90
-        }",
+        },
         "ivrPhone": "+15553338888",
         "callerPhone": "+15552223333"
     }
@@ -32,7 +32,7 @@ app.post('/appt', function (request, response) {
     //Set #Days on IVR side.
     //Date Format.
 
-    console.log(request.body)
+    console.log('recieved',request.body)
   
     var  date2 = moment().minute(30).second(0).add(14, "days");
     var  date1 = moment().minute(0).second(0).add(7, "days");
