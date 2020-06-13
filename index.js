@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 5000
-
+const moment = require("moment");
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,42 +14,96 @@ app.get('/', function (request, response) {
 
 })
 
+
+
 app.post('/appt', function (request, response) {
-    //console.log(request)
+   /*
+    Expect: 
+    {
+        "id": "{
+            "request": "get_appointments",
+            "id": "000001234"
+            "numDays": 90
+        }",
+        "ivrPhone": "+15553338888",
+        "callerPhone": "+15552223333"
+    }
+    */
+    //Set #Days on IVR side.
+    //Date Format.
+
     console.log(request.body)
-    var currentTime  = new Date();
-    var date1 = new Date()
-    date1.setDate(currentTime.getDate() + 14)
+  
+    var  date2 = moment().minute(30).second(0).add(14, "days");
+    var  date1 = moment().minute(0).second(0).add(7, "days");
+  
+    var date3 = Number(moment().format("3YYMMDD.HHMM"));
+    //console.log(date3);
+    //console.log(date3.toString().substr(1));
+    //convert fm date:
+    //console.log(moment(date3.toString().substr(1), "YYMMDD.HHMM").format());
+
+     var appt = {
+       dfn: "9999",
+       name: "ZZTEST,PATIENT",
+       stationNo: "999",
+       stationName: "NOWHERE CLINIC",
+       appointments: [
+         {
+           fmDatetime: Number(moment(date1).format("3YYMMDD.HHMM")),
+           datetime: moment(date1).format("YYYYMMDD HHmm"),
+           clinicName: "NOW TRAINING CLINIC",
+           clinicIen: "12345",
+           patientFriendlyName: "TRAINING CLINIC",
+           physicalLocation: "BUILDING A, ROOM 1",
+           clinicPhoneNumber: "999-999-999 option 2",
+           length: 30,
+         },
+         {
+           fmDatetime: Number(moment(date2).format("3YYMMDD.hm")),
+           datetime: moment(date2).format("YYYYMMDD HHmm"),
+           clinicName: "NOW CARDIOLOGY CLINIC",
+           clinicIen: "12346",
+           patientFriendlyName: "CARDIOLOGY CLINIC",
+           physicalLocation: "BUILDING C, ROOM 3",
+           clinicPhoneNumber: "999-999-999 option 4",
+           length: 30,
+         },
+       ],
+     };
+
+    var noAppt  = {
+       dfn: "9999",
+       name: "ZZTEST,PATIENT",
+       stationNo: "999",
+       stationName: "NOWHERE CLINIC",
+       appointments: [],
+     };;
    
-    var date2 = new Date()
-    date2.setDate(currentTime.getDate() + 14)
-   
-    var appt = {
-        numDays: 90,
-        appts: [
-            {
-                id: "8098098098",
-                dateTime: (date1.getTime() / 1000) | 0,
-                Location: "Eye",
-            },
-            {
-                id: "8098098098",
-                dateTime: (date2.getTime() / 1000) | 0,
-                Location: "Cardiology",
-            },
-        ],
-    };
-    var noAppt = { appts: [] };
-   
+    
     response.send(appt);
    
 })
 
 app.post('/appt/cnx', function (request, response) {
+/*
+    "id": {
+        "request": "cancel_appointment",
+        "station_no": "999",
+        "dfn": "12345",
+        "clinic_ien": "9999",
+        "date_time": "20200608 10:00"
+    },
+    "ivrPhone": "+15553338888",
+    "callerPhone": "+15552223333"
+}
 
-    console.log(request.body)
-    response.send({ "result": 1 })
+}*/
 
+     console.log(request.body);
+        response.send({
+            result: 1,
+        });
 })
 
 app.listen(PORT, () => {
