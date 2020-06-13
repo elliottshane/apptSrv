@@ -80,7 +80,7 @@ app.post('/appt', function (request, response) {
        appointments: [],
      };;
    
-    
+    console.log('sending',appt)
     response.send(appt);
    
 })
