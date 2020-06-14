@@ -51,7 +51,7 @@ app.post('/appt', function (request, response) {
        appointments: [
          {
            fmDatetime: Number(moment(date1).format("3YYMMDD.HHMM")),
-           datetime: moment(date1).format("YYYY-MM-DD HH:MM:ss"),
+           datetime: moment(date1).format("YYYY-MM-DD HH:mm:ss"),
            clinicName: "NOW TRAINING CLINIC",
            clinicIen: "12345",
            patientFriendlyName: "TRAINING CLINIC",
@@ -61,7 +61,7 @@ app.post('/appt', function (request, response) {
          },
          {
            fmDatetime: Number(moment(date2).format("3YYMMDD.hm")),
-           datetime: moment(date2).format("YYYY-MM-DD HH:MM:ss"),
+           datetime: moment(date2).format("YYYY-MM-DD HH:mm:ss"),
            clinicName: "NOW CARDIOLOGY CLINIC",
            clinicIen: "12346",
            patientFriendlyName: "CARDIOLOGY CLINIC",
